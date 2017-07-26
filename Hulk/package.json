@@ -1,0 +1,15 @@
+{
+  "name": "hulk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeason",
+  "license": "MIT",
+  "dependencies": {
+    "@mi/restful-mock": "^1.0.1",
+    "multer": "^1.3.0"
+  }
+}
