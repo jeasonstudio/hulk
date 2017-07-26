@@ -3,7 +3,7 @@ const Handler = require('./mock/handler');
 const Random = require('./mock/random');
 const RE = require('./mock/regexp');
 
-class Mock {
+class Hulk {
   constructor() {
     this.Handler = Handler;
     this.Util = Util;
@@ -17,4 +17,4 @@ class Mock {
   }
 }
 
-module.exports = new Mock();
+module.exports = new Hulk();

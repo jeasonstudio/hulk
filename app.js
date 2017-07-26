@@ -4,7 +4,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
-const Hulk = require('./Hulk');
+const { HulkMiddleWare } = require('./Hulk');
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 
-app.use(Hulk);
+app.use(HulkMiddleWare);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

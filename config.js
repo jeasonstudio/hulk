@@ -1,4 +1,4 @@
-const Mock = require('./src/mock');
+const Hulk = require('./Hulk/src/mock');
 
 module.exports = {
   Options: {},
@@ -9,6 +9,9 @@ module.exports = {
     resHeaders: {
       'Content-Type': 'application/json',
     },
-    res: Mock.mock({ 'aa|1-14': '2' }),
+    res: ({ aaa }) => {
+      console.log(aaa);
+      return Hulk.mock('@range(10)');
+    },
   }],
 };
