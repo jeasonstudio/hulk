@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint --cache --cache-location=.eslintcache --ext .js Hulk/",
-    "stest": "mocha --recursive",
+    "test:simple": "mocha --recursive",
+    "test:server": "mocha --recursive test/MiddleWare.js",
     "test": "nyc --reporter text --reporter html mocha --recursive",
     "mocha": "mocha"
   },
