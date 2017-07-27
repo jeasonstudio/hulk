@@ -1,5 +1,7 @@
 const AnyQs = require('./anyqs');
-const config = require('../config');
+
+// eslint-disable-next-line
+const config = require(`${process.cwd()}/hulks`);
 
 // eslint-disable-next-line
 module.exports = (req, res, next) => {
