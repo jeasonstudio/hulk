@@ -1,0 +1,7 @@
+# /node_modules/* and /bower_components/* ignored by default.
+# But Atom linter-eslint plugin need this file existing to make above files
+# ignored by default.
+
+# Ignore built files except build/index.js
+bin/*
+Hulk/src/mock/*
