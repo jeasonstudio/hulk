@@ -1,17 +1,29 @@
-const Hulk = require('./Hulk/src/mock');
+const Hulk = require('./Hulk/src');
 
 module.exports = {
   Options: {},
   Rules: [{
-    regURL: /\/Jeason/,
+    regURL: /\/Jeason\//,
+    resCode: 200,
+    resHeaders: {
+      'Content-Type': 'application/json',
+    },
+    res: () => Hulk.mock({ app: 2 }),
+  }, {
+    regURL: /\/Jeason\/app\//,
+    method: 'get',
+    resCode: 200,
+    resHeaders: {
+      'Content-Type': 'application/json',
+    },
+    res: () => Hulk.mock({ app: 1 }),
+  }, {
+    regURL: /\/Jeason\/b/,
     method: 'post',
     resCode: 200,
     resHeaders: {
       'Content-Type': 'application/json',
     },
-    res: ({ aaa }) => {
-      console.log(aaa);
-      return Hulk.mock('@range(10)');
-    },
+    res: () => Hulk.mock({ b: 2 }),
   }],
 };

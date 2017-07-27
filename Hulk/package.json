@@ -1,15 +1,24 @@
 {
   "name": "hulk",
   "version": "1.0.0",
-  "description": "",
+  "description": "提供 mock 数据服务的 express 中间件，可能以后会支持导出/导入 swagger",
   "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jeason",
+  "author": "Jeason <zhaojitong@xiaomi.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@v9.git.n.xiaomi.com:Jeason/hulk.git"
+  },
+  "bugs": {
+    "url": "http://v9.git.n.xiaomi.com/Jeason/hulk/issues"
+  },
+  "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Hulk",
   "dependencies": {
-    "@mi/restful-mock": "^1.0.1",
-    "multer": "^1.3.0"
   }
 }
