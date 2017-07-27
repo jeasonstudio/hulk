@@ -71,6 +71,8 @@ module.exports = {
 }
 ```
 
+> note: 若所有路径 reg 均不匹配，则请求不作处理，若同时匹配多个正则（正则有交叉）则按数组顺序最后一个处理
+
 `Hulk.mock(template)` 修改自开源库 [Mock.js](https://github.com/nuysoft/Mock/tree/refactoring)，大部分功能沿用，另外做了一些删减和也增加了一些 feature.
 
 `Hulk.mock()` 数据规范： [点这里](http://v9.git.n.xiaomi.com/Jeason/hulk/wikis/Syntax-Specification)
