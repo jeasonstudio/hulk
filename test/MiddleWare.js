@@ -1,3 +1,4 @@
+/* eslint-env node, mocha */
 const app = require('../app');
 const http = require('http');
 const expect = require('chai').expect;

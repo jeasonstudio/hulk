@@ -1,3 +1,4 @@
+/* eslint-env node, mocha */
 const Hulk = require('../Hulk/src');
 const expect = require('chai').expect;
 
