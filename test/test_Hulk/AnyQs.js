@@ -1,5 +1,5 @@
 /* eslint-env node, mocha */
-const { handle, stringOnly } = require('../Hulk/anyqs');
+const { handle, stringOnly } = require('../../Hulk/anyqs');
 const expect = require('chai').expect;
 
 describe('AnyQs', () => {
