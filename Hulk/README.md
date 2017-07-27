@@ -155,5 +155,3 @@ $ npm run test:server
 $ npm run test
 // 生成测试覆盖率报告
 ```
-
-![cover](cover.jpg)
