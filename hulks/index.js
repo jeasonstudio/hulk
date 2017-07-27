@@ -1,4 +1,4 @@
-const Hulk = require('./Hulk/src');
+const Hulk = require('../Hulk/src');
 
 module.exports = {
   Options: {},
