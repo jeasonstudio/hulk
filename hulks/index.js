@@ -27,7 +27,7 @@ module.exports = {
     method: 'get',
     resCode: 200,
     resHeaders: {},
-    res: () => Hulk.mock({ Jeason: 1 }),
+    res: () => {},
   }, {
     regURL: /\/Jeasons/,
     method: 'get',
@@ -39,7 +39,6 @@ module.exports = {
     method: 'get',
     resCode: 200,
     resHeaders: {},
-    res: () => Hulk.mock({ Jeason: 2 }),
     invade: (req, res /* next */) => {
       res.set({ jeason: '21' }).send(Hulk.mock({ invade: 1 }));
     },
