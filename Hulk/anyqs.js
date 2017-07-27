@@ -1,4 +1,10 @@
 class AnyQs {
+  constructor() {
+    this.stringOnly = this.stringOnly.bind(this);
+  }
+  stringOnly(url) {
+    return this.handle(url, { parseNumber: false });
+  }
   // eslint-disable-next-line
   handle(url, options = {}) {
     const postOptions = Object.assign({}, { parseNumber: true }, options);
@@ -19,11 +25,7 @@ class AnyQs {
       }
       return item;
     });
-
     return params;
-  }
-  stringOnly(url) {
-    return this.handle(url, { parseNumber: false });
   }
 }
 

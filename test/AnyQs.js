@@ -1,5 +1,5 @@
 /* eslint-env node, mocha */
-const { handle } = require('../Hulk/anyqs');
+const { handle, stringOnly } = require('../Hulk/anyqs');
 const expect = require('chai').expect;
 
 describe('AnyQs', () => {
@@ -63,6 +63,14 @@ describe('AnyQs', () => {
     it('should parse encoded string', () => {
       const params = handle(encodedStr);
       expect(params).to.deep.equal(result);
+    });
+  });
+
+  describe('alternative version(stringOnly) that only parse string', () => {
+    it('should convert string to number', () => {
+      const url = 'http://www.baidu.com?name=yeluoqiuzhi&born=1994&age=@24&height=174.5';
+      const params = stringOnly(url);
+      expect(typeof params.born).to.equal('string');
     });
   });
 });

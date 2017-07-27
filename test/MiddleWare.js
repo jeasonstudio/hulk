@@ -79,4 +79,28 @@ describe('MiddleWare', () => {
         done();
       });
   });
+
+  it('Middle Ware test invade', (done) => {
+    request(server)
+      .get('/invade')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.headers.jeason).to.deep.equal('21');
+        expect(res.header.jeason).to.deep.equal('21');
+        expect(res.text).to.deep.equal(JSON.stringify({ invade: 1 }));
+        done();
+      });
+  });
+
+  it('Middle Ware test 404 Not Found', (done) => {
+    request(server)
+      .get('/404')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.text).to.equal('404 Not Found');
+        done();
+      });
+  });
 });

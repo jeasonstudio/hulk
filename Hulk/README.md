@@ -1,6 +1,6 @@
 # @mi/hulk
 
-提供 mock 数据服务的 express 中间件，可能以后会支持导出/导入 swagger
+Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件，可能以后会支持导出/导入 swagger
 
 ### Install
 

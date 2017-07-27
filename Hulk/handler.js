@@ -33,6 +33,14 @@ module.exports = (req, res, next) => {
    */
   if (!targetRule) return next();
 
+  /**
+   * if targetRule has property 'invade'
+   * we will ignore ['resCode', 'resHeaders', 'res'] property
+   * and export a callback function invade(req, res, next)
+   *
+   */
+  if (typeof targetRule.invade === 'function') return targetRule.invade(req, res, next);
+
   const params = req.method.toLowerCase() === 'get' ?
     AnyQs.handle(req.url) : req.body;
 
