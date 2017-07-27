@@ -1,5 +1,7 @@
 const Handler = require('./handler');
-const HulkMock = require('./src');
+const Hulk = require('./src');
 
-module.exports.Hulk = HulkMock;
-module.exports.HulkMiddleWare = Handler;
+module.exports = {
+  Hulk,
+  HulkMiddleWare: Handler,
+};

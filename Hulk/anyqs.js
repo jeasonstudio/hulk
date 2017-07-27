@@ -1,11 +1,7 @@
 class AnyQs {
-  constructor() {
-    this.defaultOptions = {
-      parseNumber: true,
-    };
-  }
+  // eslint-disable-next-line
   handle(url, options = {}) {
-    const postOptions = Object.assign({}, this.defaultOptions, options);
+    const postOptions = Object.assign({}, { parseNumber: true }, options);
 
     const params = {};
     const tempArr = decodeURI(url)
