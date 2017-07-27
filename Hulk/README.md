@@ -156,4 +156,4 @@ $ npm run test
 // 生成测试覆盖率报告
 ```
 
-![cover](../coverage/cover.jpg)
+![cover](cover.jpg)
