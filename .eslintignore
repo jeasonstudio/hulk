@@ -5,3 +5,6 @@
 # Ignore built files except build/index.js
 bin/*
 Hulk/src/mock/*
+
+test/AnyQs.js
+test/Hulk.js
