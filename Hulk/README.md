@@ -25,11 +25,10 @@ setup(app) {
 }
 ```
 
-`./hulks/index.js`
-
-> 默认会读取此目录下的 index.js 为配置项，暂不支持自定义，如下：
-
 ```javascript
+// `./hulks/index.js`
+// 默认会读取此目录下的 index.js 为配置项，暂不支持自定义，如下：
+
 const { Hulk } = require('@mi/hulk');
 module.exports = {
   Options: {},
@@ -138,3 +137,23 @@ Hulk.mock({
 ```
 
 更详细的例子可以参考 [examples](http://mockjs.com/examples.html)
+
+### Devlope
+
+请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
+
+```bash
+$ npm start
+// 如果使用 vscode 开发可以直接 F5，支持调试。
+```
+
+```bash
+$ npm run test:simple
+// 不生成覆盖率报告
+$ npm run test:server
+// 只测试 server
+$ npm run test
+// 生成测试覆盖率报告
+```
+
+![cover](../coverage/cover.jpg)
