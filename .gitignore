@@ -31,6 +31,9 @@ yarn-error.log*
 # line counter ext
 out/*
 
+# nyc
+.nyc_output/*
+
 # others
 bak
 .*.swp
