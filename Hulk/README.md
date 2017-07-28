@@ -22,6 +22,7 @@ $ npm install @mi/hulk mockjs --save-dev
 你需要在你的 webpack 配置文件暴露 `express实例: app` 的位置做如下例所示修改，其中：
  - `bodyParser` 和 `multer` 是用来解析 post 参数的中间件
  - `HulkMiddleWare` 是提供 mock 代理服务的中间件：Hulk
+
 ```javascript
 const bodyParser = require('body-parser');
 const multer = require('multer');
