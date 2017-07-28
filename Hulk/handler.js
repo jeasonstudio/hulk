@@ -1,7 +1,21 @@
+const path = require('path');
 const AnyQs = require('./anyqs');
 
+/**
+ * we will search your package.json property `hulkpath`
+ * or the default path is `process.cwd()/hulks`
+ */
 // eslint-disable-next-line
-const config = require(`${process.cwd()}/hulks`);
+const pack = require(`${process.cwd()}/package.json`);
+const hulkPath = path.join(process.cwd(),
+  pack.hulkpath ? pack.hulkpath : './hulks',
+);
+
+/**
+ * load your hulk config
+ */
+// eslint-disable-next-line
+const config = require(hulkPath);
 
 // eslint-disable-next-line
 module.exports = (req, res, next) => {

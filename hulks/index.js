@@ -1,5 +1,8 @@
-const Hulk = require('../Hulk/src');
+const Hulk = require('mockjs');
 
+/**
+ * DO NOT DELETE any of propety below
+ */
 module.exports = {
   Options: {},
   Rules: [{

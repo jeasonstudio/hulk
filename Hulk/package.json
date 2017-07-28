@@ -19,5 +19,7 @@
     "url": "http://v9.git.n.xiaomi.com/Jeason/hulk/issues"
   },
   "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Hulk",
-  "dependencies": {}
+  "dependencies": {
+    "mockjs": "^1.0.1-beta3"
+  }
 }
