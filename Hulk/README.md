@@ -1,12 +1,12 @@
 # @mi/hulk
 
-Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件，可能以后会支持导出/导入 swagger
+Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件
 
 ### Install
 
 ```bash
 $ nrm use mi
-$ npm install @mi/hulk --save-dev
+$ npm install @mi/hulk mockjs --save-dev
 ```
 
 ### Usage
@@ -16,20 +16,28 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const { HulkMiddleWare } = require('@mi/hulk');
 
+// ...
+
 setup(app) {
-  app.use(bodyParser.json()); // for parsing application/json
-  app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-  app.use(multer()); // for parsing multipart/form-data
+  app.use(bodyParser.json());
+  // for parsing application/json
+  app.use(bodyParser.urlencoded({ extended: true }));
+  // for parsing application/x-www-form-urlencoded
+  app.use(multer());
+  // for parsing multipart/form-data
 
   app.use(HulkMiddleWare);
+  // use Hulk Middle Ware
 }
 ```
 
 ```javascript
-// `./hulks/index.js`
-// 默认会读取此目录下的 index.js 为配置项，暂不支持自定义，如下：
+/** `./hulks/index.js`
+ * 默认会读取此目录下的 index.js 为配置项
+ * 如需自定义配置请在项目根目录 `package.json` 中配置 `hulkpath` 字段
+ */
 
-const { Hulk } = require('@mi/hulk');
+const Hulk = require('mockjs');
 module.exports = {
   Options: {},
   Rules: [{
@@ -50,7 +58,7 @@ module.exports = {
 
 | key | value |
 | --- | --- |
-| Options | 留作扩展 |
+| Options | 留作扩展(swagger) |
 | Rules | <Array> 所有 mock 项数组 |
 
 | key | value |
@@ -60,8 +68,9 @@ module.exports = {
 | resCode | 期望返回的 statusCode，默认为 200 |
 | resHeaders | 期望返回的 response Headers，不填返回默认值 |
 | res | <Function> 参数为 get/post 请求的参数，可以通过结构方式获取(见上)，返回值为期望返回的数据，无返回值则默认返回空 Object |
+| invade | <Function> 自定义方法字段，若 `typeof invade === 'function'`，`Hulk` 会忽略 `resCode,resHeaders,res` 三个字段，并暴露一个回调函数 `invade(req, res, next)` |
 
-如上配置之后，如果我们请求 `GET /Jeason?name=jeason&year=20` 我们可以得到一个 `json` 对象，其内容为：
+如上配置，请求 `GET /Jeason?name=jeason&year=20` 我们可以得到一个 `json` 对象，其内容为：
 ```json
 {
   "stars": "★★★",
@@ -70,13 +79,13 @@ module.exports = {
 }
 ```
 
-> note: 若所有路径 reg 均不匹配，则请求不作处理，若同时匹配多个正则（正则有交叉）则按数组顺序最后一个处理
+### NOTE: important!!
+ - Hulk 只提供中间件代理服务，`模拟生成数据服务` 我们推荐使用 `mockjs` ，但你可以有其他类似的选择。
+ - 若所有路径 reg 均不匹配，则请求不作处理，若同时匹配多个正则（正则有交叉）则按数组顺序最后一个处理
+ - `Mock.mock()` [数据规范](http://v9.git.n.xiaomi.com/Jeason/hulk/wikis/Syntax-Specification)
+ - 更详细的例子可以参考 [examples](http://mockjs.com/examples.html)
 
-`Hulk.mock(template)` 修改自开源库 [Mock.js](https://github.com/nuysoft/Mock/tree/refactoring)，大部分功能沿用，另外做了一些删减和也增加了一些 feature.
-
-`Hulk.mock()` 数据规范： [点这里](http://v9.git.n.xiaomi.com/Jeason/hulk/wikis/Syntax-Specification)
-
-> Hulk.mock(template) 例子：
+### Hulk.mock(template) example：
 
 ```javascript
 Hulk.mock({
@@ -136,18 +145,21 @@ Hulk.mock({
 }
 ```
 
-更详细的例子可以参考 [examples](http://mockjs.com/examples.html)
-
 ### Devlope
 
 请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
 
 ```bash
+// 开发
+$ nrm use mi
+$ cd Hulk && npm install
+$ cd .. && npm install
 $ npm start
 // 如果使用 vscode 开发可以直接 F5，支持调试。
 ```
 
 ```bash
+// 测试
 $ npm run test:simple
 // 不生成覆盖率报告
 $ npm run test:server
