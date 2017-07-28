@@ -1,5 +1,8 @@
 const path = require('path');
 const AnyQs = require('./anyqs');
+// eslint-disable-next-line
+const colors = require('colors');
+
 
 /**
  * we will search your package.json property `hulkpath`
@@ -20,12 +23,14 @@ const config = require(hulkPath);
 // eslint-disable-next-line
 module.exports = (req, res, next) => {
   let targetRule;
+
   config.Rules.map((self, o) => {
     /**
      * self.url should be one of [ regexp, string, function ]
      * JUDGE_URL Boolean
      */
     let JUDGE_URL;
+
     if (typeof self.url === 'string') {
       // is String
       // eslint-disable-next-line
@@ -43,8 +48,10 @@ module.exports = (req, res, next) => {
       JUDGE_URL = self.url(req.path) || false;
     } else {
       // Do not match any of it
+      JUDGE_URL = false;
       throw new Error('Propety \'url\' should be one of [ regexp, string, function ]');
     }
+
     /**
      * Here match your reg rules and methods
      * we will match the last url rule that matched
@@ -75,6 +82,15 @@ module.exports = (req, res, next) => {
 
   const params = req.method.toLowerCase() === 'get' ?
     AnyQs.handle(req.url) : req.body;
+
+  // eslint-disable-next-line
+  console.log(
+    `${'  [HULK success]'.green} ${req.method.toUpperCase()} ${req.path.split('?')[0]} ${
+      targetRule.resCode < 200 || targetRule.resCode > 200 ?
+        String(targetRule.resCode).red :
+        String(targetRule.resCode).green
+    } mocked by Hulk`,
+  );
 
   res
     /**

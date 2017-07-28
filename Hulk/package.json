@@ -20,6 +20,8 @@
   },
   "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Hulk",
   "dependencies": {
+    "colors": "^1.1.2",
+    "loglevel": "^1.4.1",
     "mockjs": "^1.0.1-beta3"
   }
 }

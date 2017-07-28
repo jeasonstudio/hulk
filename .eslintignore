@@ -6,3 +6,4 @@
 bin/*
 Hulk/src/mock/*
 
+*/node_modules/*
