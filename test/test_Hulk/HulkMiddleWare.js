@@ -103,4 +103,26 @@ describe('MiddleWare', () => {
         done();
       });
   });
+
+  it('Middle Ware test url string', (done) => {
+    request(server)
+      .get('/string')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.text).to.equal(JSON.stringify({ string: 1 }));
+        done();
+      });
+  });
+
+  it('Middle Ware test url Function string', (done) => {
+    request(server)
+      .get('/function')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.text).to.equal(JSON.stringify({ function: 1 }));
+        done();
+      });
+  });
 });
