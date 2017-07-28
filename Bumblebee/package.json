@@ -1,0 +1,17 @@
+{
+  "name": "bumblebee",
+  "version": "1.0.0",
+  "description": "Bumblebee => 大黄蜂：解析 swagger 生成 Hulk 配置",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeason <zhaojitong@xiaomi.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yamljs": "^0.3.0"
+  }
+}

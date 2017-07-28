@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules*
-Hulk/node_modules*
+*/node_modules*
 /bower_components*
 
 # testing
