@@ -15,13 +15,28 @@ module.exports = (SWAGGER) => {
 
   if (typeof SWAGGER.paths !== 'object') throw new Error('The Propety `paths` should be Object');
   const URLs = Reflect.ownKeys(SWAGGER.paths);
-  RESULT.Rules = URLs.map((hulkItem, key) => {
-    const MRTHODs = Reflect.ownKeys(hulkItem);
+  RESULT.Rules = URLs.map((hulkItem) => {
+    // console.log(hulkItem);
+    const METHODs = Reflect.ownKeys(SWAGGER.paths[hulkItem]);
+    const FINAL_METHOD = METHODs.length > 1 ? 'MORE' : METHODs[0];
+
+    const CODEs = Reflect.ownKeys(SWAGGER.paths[hulkItem][METHODs[0]].responses);
+    const FINAL_CODE = CODEs.length === 1 && CODEs[0] !== 'default' ? CODEs[0] : 200;
+
+    const PARAMs = SWAGGER.paths[hulkItem][METHODs[0]].parameters;
+    const PARAMarray = PARAMs.map(item => item.name);
+    const a = PARAMarray.join(', ');
+    const RES = `({ ${a} }) => {}`;
+
     const HULK = Object.assign({},
       {
-        url: str2reg(hulkItem, 'get'),
+        url: str2reg(hulkItem, FINAL_METHOD),
+        method: METHODs.length > 1 ? undefined : METHODs[0],
+        resCode: FINAL_CODE,
+        res: eval(RES),
       },
     );
+    console.log(HULK.res.toString());
     return HULK;
   });
   return RESULT;

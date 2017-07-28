@@ -8,8 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/bin/www"
-            // "program": "${workspaceRoot}/Bumblebee/index"
+            // "program": "${workspaceRoot}/bin/www"
+            "program": "${workspaceRoot}/Bumblebee/index"
         }
     ]
 }
