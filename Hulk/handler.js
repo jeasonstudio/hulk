@@ -22,9 +22,8 @@ const config = require(hulkPath);
 
 // eslint-disable-next-line
 module.exports = (req, res, next) => {
-  let targetRule;
 
-  config.Rules.map((self, o) => {
+  const ruleMatchs = config.Rules.filter((self, o) => {
     /**
      * self.url should be one of [ regexp, string, function ]
      * JUDGE_URL Boolean
@@ -63,10 +62,11 @@ module.exports = (req, res, next) => {
         !self.method
         || self.method.toLowerCase() === req.method.toLowerCase()
       )
-    ) targetRule = config.Rules[o];
-    return JUDGE_URL;
+    ) return true;
+    return false;
   });
 
+  const targetRule = ruleMatchs[0];
   /**
    * HAVE NOT MATCH ANY REGRXPs
    */

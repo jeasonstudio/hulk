@@ -30,7 +30,7 @@ module.exports = {
     method: 'get',
     resCode: 200,
     resHeaders: {},
-    res: () => {},
+    res: () => Mock.mock({ Jeason: 1 }),
   }, {
     url: /\/Jeasons/,
     method: 'get',

@@ -75,7 +75,7 @@ describe('MiddleWare', () => {
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.text).to.deep.equal(JSON.stringify({ Jeason: 2 }));
+        expect(res.text).to.deep.equal(JSON.stringify({ Jeason: 1 }));
         done();
       });
   });

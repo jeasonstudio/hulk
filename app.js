@@ -4,7 +4,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
-const { HulkMiddleWare } = require('./Hulk');
+const HulkMiddleWare = require('./Hulk');
 
 const app = express();
 
