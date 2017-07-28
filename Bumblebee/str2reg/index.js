@@ -1,0 +1,15 @@
+module.exports = STR => `/${STR
+  .replace(/\//g, '\\/')
+  .replace(/\$/g, '\\$')
+  .replace(/\(/g, '\\(')
+  .replace(/\)/g, '\\)')
+  .replace(/\*/g, '\\*')
+  .replace(/\+/g, '\\+')
+  .replace(/\./g, '\\.')
+  .replace(/\[/g, '\\[')
+  .replace(/\]/g, '\\]')
+  .replace(/\\/g, '\\')
+  .replace(/\^/g, '\\^')
+  .replace(/\{/g, '\\{')
+  .replace(/\}/g, '\\}')
+  .replace(/\|/g, '\\|')}$/`;

@@ -1,12 +1,12 @@
 {
-  "name": "hulk-mock-test",
+  "name": "hulk-mock-bumblebee-test",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint --cache --cache-location=.eslintcache --ext .js Hulk/",
     "test:simple": "mocha --recursive",
-    "test:server": "mocha --recursive test/MiddleWare.js",
+    "test:server": "mocha --recursive test/test_Hulk/HulkMiddleWare.js",
     "test": "nyc --reporter text --reporter html mocha --recursive",
     "mocha": "mocha"
   },
@@ -21,7 +21,7 @@
     "pug": "~2.0.0-beta11",
     "serve-favicon": "~2.4.2"
   },
-  "hulkpath": "./hulks",
+  "hulkpath": "./.hulkrc.js",
   "devDependencies": {
     "chai": "^4.0.2",
     "eslint": "^4.3.0",

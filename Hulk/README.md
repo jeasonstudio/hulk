@@ -41,7 +41,7 @@ const Hulk = require('mockjs');
 module.exports = {
   Options: {},
   Rules: [{
-    regURL: /\/Jeason/,
+    url: /\/Jeason/,
     method: 'get',
     resCode: 200,
     resHeaders: {
@@ -63,7 +63,7 @@ module.exports = {
 
 | key | value |
 | --- | --- |
-| regURL | 必须是正则，匹配url |
+| url | 必须是正则，匹配url |
 | method | 同时匹配 method ，不填代表全部匹配 |
 | resCode | 期望返回的 statusCode，默认为 200 |
 | resHeaders | 期望返回的 response Headers，不填返回默认值 |
