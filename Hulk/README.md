@@ -74,19 +74,19 @@ module.exports = {
 
 | key | type | value |
 | --- | --- | --- |
-| Options | <Object> | 留作扩展(swagger) |
-| Rules | <Array> | Rule 数组 |
+| Options | Object | 留作扩展(swagger) |
+| Rules | Array | Rule 数组 |
 
 > Rules Schema
 
 | key | type | value |
 | --- | --- | --- |
-| url | <RegExp>, <String>, <Function> | 我们推荐正则形式，但也支持字符串和函数，如果为函数类型，其参数为 `(reqPath)`，返回值必须为布尔值 |
-| method | <String> | 匹配 req.method，不填代表匹配全部 |
-| resCode | <Number> | 期望返回的 statusCode，默认为 200 |
-| resHeaders | <Object> | 期望返回的 response Headers，不填返回默认值 |
-| res | <Function> 参数为 get/post 请求的参数对象，可以通过解构方式获取(见上)，返回值为期望返回的数据 |
-| invade | <Function> 自定义方法字段，若 `typeof invade === 'function'`，`Hulk` 会忽略 `resCode,resHeaders,res` 三个字段，并暴露一个回调函数 `invade(req, res, next)` |
+| url | RegExp, String, Function | 我们推荐正则形式，但也支持字符串和函数，如果为函数类型，其参数为 `(reqPath)`，返回值必须为布尔值 |
+| method | String | 匹配 req.method，不填代表匹配全部 |
+| resCode | Number | 期望返回的 statusCode，默认为 200 |
+| resHeaders | Object | 期望返回的 response Headers，不填返回默认值 |
+| res | Function | 参数为 get/post 请求的参数对象，可以通过解构方式获取(见上)，返回值为期望返回的数据 |
+| invade | Function | 自定义方法字段，若 `typeof invade === 'function'`，`Hulk` 会忽略 `resCode,resHeaders,res` 三个字段，并暴露一个回调函数 `invade(req, res, next)` |
 
 如上配置，请求 `GET /Jeason?name=jeason&year=20` 我们可以得到一个 `json` 对象，其内容为：
 ```json
