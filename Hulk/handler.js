@@ -8,7 +8,7 @@ const AnyQs = require('./anyqs');
 // eslint-disable-next-line
 const pack = require(`${process.cwd()}/package.json`);
 const hulkPath = path.join(process.cwd(),
-  pack.hulkpath ? pack.hulkpath : './hulks',
+  pack.hulkpath ? pack.hulkpath : '/.hulkrc.js',
 );
 
 /**
@@ -22,24 +22,42 @@ module.exports = (req, res, next) => {
   let targetRule;
   config.Rules.map((self, o) => {
     /**
-     * self.regURL should be typeof regexp and required
+     * self.url should be one of [ regexp, string, function ]
+     * JUDGE_URL Boolean
      */
-    if (!(typeof self.regURL === 'object' && typeof self.regURL.test === 'function')) {
-      throw new Error('\'Rules.regURL\' must be RegExp Type');
+    let JUDGE_URL;
+    if (typeof self.url === 'string') {
+      // is String
+      // eslint-disable-next-line
+      self.method.toLowerCase() === 'post' ?
+        JUDGE_URL = (self.url === req.path) :
+        JUDGE_URL = (self.url.split('?')[0] === req.path);
+    } else if (typeof self.url === 'object'
+      && typeof self.url.test === 'function'
+      && typeof self.url.exec === 'function'
+    ) {
+      // is RegExp
+      JUDGE_URL = self.url.test(req.path);
+    } else if (typeof self.url === 'function') {
+      // is Function
+      JUDGE_URL = self.url(req.path) || false;
+    } else {
+      // Do not match any of it
+      throw new Error('Propety \'url\' should be one of [ regexp, string, function ]');
     }
     /**
      * Here match your reg rules and methods
-     * we will match the last regURL rule that matched
+     * we will match the last url rule that matched
      * and judge if self.method exsits and matchs
      */
     if (
-      self.regURL.test(req.path)
+      JUDGE_URL
       && (
         !self.method
         || self.method.toLowerCase() === req.method.toLowerCase()
       )
     ) targetRule = config.Rules[o];
-    return self.regURL.test(req.path);
+    return JUDGE_URL;
   });
 
   /**
@@ -78,5 +96,5 @@ module.exports = (req, res, next) => {
      *
      * ({ userId }) => Hulk.Random.id()
      */
-    .send(targetRule.res(params) || {});
+    .send(targetRule.res(params));
 };
