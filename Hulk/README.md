@@ -103,7 +103,7 @@ module.exports = {
 > 一些声明：
  - Hulk 只提供中间件代理服务，`模拟生成数据服务` 我们推荐使用 `mockjs` ，但你可以有其他类似的选择。
  - 若 `url` 字段无请求匹配，则 `Hulk` 会不作处理，忽略此请求
- - 若多个正则(或字符串或函数)匹配成功，则按最后一次匹配的结果处理
+ - 若多个正则(或字符串或函数)匹配成功，则按最先匹配的结果处理
 
 > 关于 MockJS
  - `Mock.mock()` [数据规范及wiki](http://v9.git.n.xiaomi.com/Jeason/hulk/wikis/Syntax-Specification)
