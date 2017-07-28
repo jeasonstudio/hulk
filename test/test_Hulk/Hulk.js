@@ -1,5 +1,5 @@
 /* eslint-env node, mocha */
-const Hulk = require('../../Hulk/src');
+const Hulk = require('mockjs');
 const expect = require('chai').expect;
 
 const Random = Hulk.Random;
