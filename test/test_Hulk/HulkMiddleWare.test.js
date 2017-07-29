@@ -117,7 +117,7 @@ describe('MiddleWare', () => {
 
   it('Middle Ware test url Function string', (done) => {
     request(server)
-      .get('/function')
+      .get('/function?w=2')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
