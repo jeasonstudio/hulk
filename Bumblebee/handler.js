@@ -25,8 +25,10 @@ module.exports = (SWAGGER) => {
 
     const PARAMs = SWAGGER.paths[hulkItem][METHODs[0]].parameters;
     const PARAMarray = PARAMs.map(item => item.name);
-    const a = PARAMarray.join(', ');
-    const RES = `({ ${a} }) => {}`;
+    const PARAMsString = PARAMarray.join(', ');
+
+    const RES_FUNCTION = 'Mock.mock({ \'Jeason|2\': \'e\' })';
+    const RES = PARAMarray.length > 0 ? `({ ${PARAMsString} }) => ${RES_FUNCTION}` : `() => ${RES_FUNCTION}`;
 
     const HULK = Object.assign({},
       {
@@ -36,7 +38,8 @@ module.exports = (SWAGGER) => {
         res: eval(RES),
       },
     );
-    console.log(HULK.res.toString());
+    // console.log(eval(RES).toString());
+    // console.log(HULK.res.toString());
     return HULK;
   });
   return RESULT;

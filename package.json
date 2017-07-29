@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "lint": "eslint --cache --cache-location=.eslintcache --ext .js Hulk/",
     "test:simple": "mocha --recursive",
-    "test:server": "mocha --recursive test/test_Hulk/HulkMiddleWare.js",
+    "test:server": "mocha --recursive test/test_Hulk/HulkMiddleWare.test.js",
+    "test:bumblebee": "mocha --recursive test/test_Bumblebee/*",
     "test": "nyc --reporter text --reporter html mocha --recursive",
     "mocha": "mocha"
   },

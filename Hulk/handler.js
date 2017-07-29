@@ -23,7 +23,7 @@ const config = require(hulkPath);
 // eslint-disable-next-line
 module.exports = (req, res, next) => {
 
-  const ruleMatchs = config.Rules.filter((self, o) => {
+  const ruleMatchs = config.Rules.filter((self) => {
     /**
      * self.url should be one of [ regexp, string, function ]
      * JUDGE_URL Boolean
@@ -67,6 +67,12 @@ module.exports = (req, res, next) => {
   });
 
   const targetRule = ruleMatchs[0];
+
+  /**
+   * if too many rules matchs, we will warn you
+   */
+  // eslint-disable-next-line
+  if (ruleMatchs.length > 1) console.log(`${`[HULK warning] ${ruleMatchs.length}`} Rules Matchs. Hulk Let You Know This.`.yellow);
   /**
    * HAVE NOT MATCH ANY REGRXPs
    */
@@ -85,7 +91,7 @@ module.exports = (req, res, next) => {
 
   // eslint-disable-next-line
   console.log(
-    `${'  [HULK success]'.green} ${req.method.toUpperCase()} ${req.path.split('?')[0]} ${
+    `${'[HULK success]'.cyan} ${req.method.toUpperCase()} ${req.path.split('?')[0]} ${
       targetRule.resCode < 200 || targetRule.resCode > 200 ?
         String(targetRule.resCode).red :
         String(targetRule.resCode).green
