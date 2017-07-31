@@ -4,6 +4,9 @@ const program = require('commander');
 const path = require('path');
 const fs = require('fs');
 
+/**
+ * require modules
+ */
 const pack = require('../package.json');
 
 const handler = require('../handler');
@@ -17,6 +20,9 @@ function loadJsonFile(pathname) {
   return bin.toString('utf-8');
 }
 
+/**
+ * main program and usage
+ */
 program
   .version(pack.version)
   .description('@mi/Bumblebee: A node script for Hulk.')
