@@ -72,7 +72,8 @@ module.exports = (req, res, next) => {
    * if too many rules matchs, we will warn you
    */
   // eslint-disable-next-line
-  if (ruleMatchs.length > 1) console.log(`${`[HULK warning] ${ruleMatchs.length}`} Rules Matchs. Hulk Let You Know This.`.yellow);
+  if (ruleMatchs.length > 1) console.log(`${`[HULK warning] ${ruleMatchs.length}`} Rules Matchs. Hulk Let You to Know This.`.yellow);
+
   /**
    * HAVE NOT MATCH ANY REGRXPs
    */

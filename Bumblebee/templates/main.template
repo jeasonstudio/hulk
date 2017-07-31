@@ -1,0 +1,6 @@
+const Mock = require('mockjs');
+
+module.exports = {
+  Options: {{OPTIONS}},
+  Rules: [{{RULE}}],
+};

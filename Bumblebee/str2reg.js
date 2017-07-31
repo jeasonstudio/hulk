@@ -1,6 +1,6 @@
 module.exports = (STR, METHOD) => {
   const self = METHOD.toLowerCase() === 'get' ? '\\?' : '$';
-  return new RegExp(`${STR
+  return `/${STR
     .split('?')[0]
     // .replace(/\\/g, '\\')
     .replace(/\//g, '\\/')
@@ -17,6 +17,6 @@ module.exports = (STR, METHOD) => {
     .replace(/\]/g, '\\]')
     .replace(/\^/g, '\\^')
     .replace(/\{\S+\}/, '\\S+')
-    .replace(/\|/g, '\\|')}${self}`);
+    .replace(/\|/g, '\\|')}${self}/`;
 };
 

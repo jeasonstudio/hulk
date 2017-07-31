@@ -1,8 +1,17 @@
 const str2reg = require('./str2reg');
+const render = require('./templates/render');
 
 module.exports = (SWAGGER) => {
+  /**
+   * render result object
+   */
   const RESULT = {};
   if (!SWAGGER.swagger) console.warn('Did you forget the DOCs VERSION?');
+
+  /**
+   * fill in the swagger options
+   * and render to template
+   */
   RESULT.Options = Object.assign({},
     SWAGGER.info,
     {
@@ -12,10 +21,15 @@ module.exports = (SWAGGER) => {
       schemes: SWAGGER.schemes,
     },
   );
+  render.Options(RESULT.Options);
 
+  /**
+   * parser swagger api
+   * and render to Rules
+   */
   if (typeof SWAGGER.paths !== 'object') throw new Error('The Propety `paths` should be Object');
   const URLs = Reflect.ownKeys(SWAGGER.paths);
-  RESULT.Rules = URLs.map((hulkItem) => {
+  RESULT.Rules = URLs.map((hulkItem, i) => {
     // console.log(hulkItem);
     const METHODs = Reflect.ownKeys(SWAGGER.paths[hulkItem]);
     const FINAL_METHOD = METHODs.length > 1 ? 'MORE' : METHODs[0];
@@ -27,7 +41,7 @@ module.exports = (SWAGGER) => {
     const PARAMarray = PARAMs.map(item => item.name);
     const PARAMsString = PARAMarray.join(', ');
 
-    const RES_FUNCTION = 'Mock.mock({ \'Jeason|2\': \'e\' })';
+    const RES_FUNCTION = 'Mock.mock({ })';
     const RES = PARAMarray.length > 0 ? `({ ${PARAMsString} }) => ${RES_FUNCTION}` : `() => ${RES_FUNCTION}`;
 
     const HULK = Object.assign({},
@@ -35,11 +49,12 @@ module.exports = (SWAGGER) => {
         url: str2reg(hulkItem, FINAL_METHOD),
         method: METHODs.length > 1 ? undefined : METHODs[0],
         resCode: FINAL_CODE,
-        res: eval(RES),
+        res: RES,
       },
     );
-    // console.log(eval(RES).toString());
-    // console.log(HULK.res.toString());
+
+    render.Rules(HULK, URLs.length === i + 1);
+
     return HULK;
   });
   return RESULT;
