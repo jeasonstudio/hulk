@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+/**
+ * @{Author} Jeason zhaojitong@xiaomi.com
+ */
 const program = require('commander');
 const path = require('path');
 const fs = require('fs');
