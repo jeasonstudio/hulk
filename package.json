@@ -8,8 +8,7 @@
     "test:simple": "mocha --recursive",
     "test:server": "mocha --recursive test/test_Hulk/HulkMiddleWare.test.js",
     "test:bumblebee": "mocha --recursive test/test_Bumblebee/*",
-    "test": "nyc --reporter text --reporter html mocha --recursive",
-    "mocha": "mocha"
+    "test": "nyc --reporter text --reporter html mocha --recursive"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -22,7 +21,7 @@
     "pug": "~2.0.0-beta11",
     "serve-favicon": "~2.4.2"
   },
-  "hulkpath": "./.hulkrc.js",
+  "hulkpath": "./.hulkrc_backup.js",
   "devDependencies": {
     "chai": "^4.0.2",
     "eslint": "^4.3.0",

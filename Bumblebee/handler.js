@@ -1,7 +1,7 @@
 const str2reg = require('./str2reg');
 const render = require('./templates/render');
 
-module.exports = (SWAGGER) => {
+module.exports = (SWAGGER = {}, hulkrcLocation = '') => {
   /**
    * render result object
    */
@@ -21,7 +21,7 @@ module.exports = (SWAGGER) => {
       schemes: SWAGGER.schemes,
     },
   );
-  render.Options(RESULT.Options);
+  render.Options(RESULT.Options, hulkrcLocation);
 
   /**
    * parser swagger api
@@ -53,7 +53,7 @@ module.exports = (SWAGGER) => {
       },
     );
 
-    render.Rules(HULK, URLs.length === i + 1);
+    render.Rules(HULK, hulkrcLocation, URLs.length === i + 1);
 
     return HULK;
   });

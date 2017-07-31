@@ -1,9 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const ORIGN_DATA = fs.readFileSync(path.join(__dirname, './main.template'), 'utf8');
-fs.writeFileSync(path.join(__dirname, './.hulkrc.js'), ORIGN_DATA);
-
 const RULE_SNIPPET = `{
     url: {{RULE_URL}},
     method: {{RULE_METHOD}},
@@ -12,17 +9,17 @@ const RULE_SNIPPET = `{
     res: {{RULE_RES}},
   }`;
 
-module.exports.Options = (hulk = {}) => {
-  const data = fs.readFileSync(path.join(__dirname, './.hulkrc.js'), 'utf8');
+module.exports.Options = (hulk = {}, hulkrcLocation = '') => {
+  const data = fs.readFileSync(hulkrcLocation, 'utf8');
   fs.writeFileSync(
-    path.join(__dirname, './.hulkrc.js'),
+    path.join(hulkrcLocation),
     data.replace(
       /\{\{OPTIONS\}\}/g,
       JSON.stringify(hulk, null, 2),
     ));
 };
 
-module.exports.Rules = (hulk = {}, isEnd = false) => {
+module.exports.Rules = (hulk = {}, hulkrcLocation = '', isEnd = false) => {
   let selfSnippet = RULE_SNIPPET;
   selfSnippet = selfSnippet.replace(/\{\{RULE_URL\}\}/, hulk.url)
     .replace(/\{\{RULE_METHOD\}\}/, hulk.method)
@@ -31,9 +28,9 @@ module.exports.Rules = (hulk = {}, isEnd = false) => {
 
   if (!isEnd) selfSnippet += ', {{RULE}}';
 
-  const data = fs.readFileSync(path.join(__dirname, './.hulkrc.js'), 'utf8');
+  const data = fs.readFileSync(hulkrcLocation, 'utf8');
   fs.writeFileSync(
-    path.join(__dirname, './.hulkrc.js'),
+    path.join(hulkrcLocation),
     data.replace(
       /\{\{RULE\}\}/g,
       selfSnippet,
