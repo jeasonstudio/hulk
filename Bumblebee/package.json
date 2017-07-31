@@ -18,6 +18,9 @@
   "bugs": {
     "url": "http://v9.git.n.xiaomi.com/Jeason/hulk/issues"
   },
+  "bin": {
+    "eslint": "./bin/bumblebee.js"
+  },
   "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Bumblebee",
   "dependencies": {
     "commander": "^2.11.0",
