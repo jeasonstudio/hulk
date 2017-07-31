@@ -3,10 +3,9 @@ const AnyQs = require('./anyqs');
 // eslint-disable-next-line
 const colors = require('colors');
 
-
 /**
  * we will search your package.json property `hulkpath`
- * or the default path is `process.cwd()/hulks`
+ * or the default file is `process.cwd()/.hulkrc.js`
  */
 // eslint-disable-next-line
 const pack = require(`${process.cwd()}/package.json`);

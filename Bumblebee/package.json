@@ -1,6 +1,6 @@
 {
-  "name": "bumblebee",
-  "version": "1.0.0",
+  "name": "@mi/bumblebee",
+  "version": "1.0.1",
   "description": "Bumblebee => 大黄蜂：解析(parser) swagger 生成 Hulk 配置",
   "main": "index.js",
   "engines": {
@@ -20,7 +20,6 @@
   },
   "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Bumblebee",
   "dependencies": {
-    "fast-json-stringify": "^0.12.2",
     "js-yaml": "^3.9.0"
   }
 }
