@@ -48,4 +48,6 @@ if (program.source && program.target) {
 
   handler(swaggerObject, program.target);
   console.log('[Bumblebee] Finished!');
+} else {
+  throw new Error('source is required')
 }

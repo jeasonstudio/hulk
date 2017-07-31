@@ -8,6 +8,7 @@
     "test:simple": "mocha --recursive",
     "test:server": "mocha --recursive test/test_Hulk/HulkMiddleWare.test.js",
     "test:bumblebee": "mocha --recursive test/test_Bumblebee/*",
+    "bumblebee": "bumblebee -S ./test/test_Bumblebee/swagger/swagger.json",
     "test": "nyc --reporter text --reporter html mocha --recursive"
   },
   "dependencies": {
@@ -24,7 +25,7 @@
   },
   "hulkpath": "./.hulkrc_backup.js",
   "devDependencies": {
-    "@mi/bumblebee": "^1.1.5",
+    "@mi/bumblebee": "^1.1.6",
     "chai": "^4.0.2",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",
