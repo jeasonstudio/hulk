@@ -31,11 +31,12 @@ const ORIGN_DATA = fs.readFileSync(path.join(__dirname, '../templates/main.templ
 fs.writeFileSync(program.target, ORIGN_DATA);
 
 if (program.source && program.target) {
-  console.log('Loading file...');
+  console.log('[Bumblebee] working......');
 
   const swaggerObject = /\.yaml$/.test(program.source) ?
     YAML(program.source) :
     JSON.parse(loadJsonFile(program.source));
 
   handler(swaggerObject, program.target);
+  console.log('[Bumblebee] Finished!');
 }
