@@ -13,11 +13,22 @@ const hulkPath = path.join(process.cwd(),
   pack.hulkpath ? pack.hulkpath : '/.hulkrc.js',
 );
 
+// force require
+function requireF(modulePath) {
+  try {
+    // eslint-disable-next-line
+    return require(modulePath);
+  } catch (e) {
+    // eslint-disable-next-line
+    console.warn('We need at least `.hulkrc.js` in your workplace root folder to use Hulk.');
+    return false;
+  }
+}
+
 /**
  * load your hulk config
  */
-// eslint-disable-next-line
-const config = require(hulkPath);
+const config = requireF(hulkPath);
 
 // eslint-disable-next-line
 module.exports = (req, res, next) => {
