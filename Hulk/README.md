@@ -1,4 +1,13 @@
-# @mi/hulk
+<div align="center">
+  <h1>
+    <a href="https://learn-anything.xyz">Hulk.js 🎃</a>
+  </h1>
+
+  [![Build Status](https://travis-ci.org/jeasonstudio/hulk.svg?branch=master)](https://travis-ci.org/jeasonstudio/hulk)
+  [![Support Me](https://img.shields.io/badge/Support%20Us-💗-ff69b4.svg)](https://github.com/jeasonstudio)
+  [![npm](https://img.shields.io/npm/v/hulk.js.svg)](https://www.npmjs.com/package/hulk.js)
+  [![Liense MIT](https://img.shields.io/pypi/l/pipenv.svg)](https://github.com/learn-anything/learn-anything/blob/master/LICENSE)
+</div>
 
 Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件
 
@@ -13,11 +22,10 @@ Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件
 ### Install
 
 ```bash
-$ nrm use mi
-$ npm install @mi/hulk mockjs --save-dev
+$ npm install hulk.js mockjs body-parser --save-dev
 ```
 
-### Usage
+### Usage & Example
 
 你需要在你的 webpack 配置文件暴露 `express实例: app` 的位置做如下例所示修改，其中：
  - `bodyParser` 和 `multer` 是用来解析 post 参数的中间件
@@ -71,6 +79,15 @@ module.exports = {
 };
 ```
 
+如上配置，请求 `GET /Jeason?name=jeason&year=20` 我们可以得到一个 `json` 对象，其内容为：
+```json
+{
+  "stars": "★★★",
+  "name": "jeason",
+  "year": 20,
+}
+```
+
 > Module.exports Schema
 
 | key | type | value |
@@ -89,15 +106,6 @@ module.exports = {
 | res | Function | 参数为 get/post 请求的参数对象，可以通过解构方式获取(见上)，返回值为期望返回的数据 |
 | invade | Function | 自定义方法字段，若 `typeof invade === 'function'`，`Hulk` 会忽略 `resCode,resHeaders,res` 三个字段，并暴露一个回调函数 `invade(req, res, next)` |
 
-如上配置，请求 `GET /Jeason?name=jeason&year=20` 我们可以得到一个 `json` 对象，其内容为：
-```json
-{
-  "stars": "★★★",
-  "name": "jeason",
-  "year": 20,
-}
-```
-
 ### NOTE: important!!
 
 > 一些声明：
@@ -105,7 +113,31 @@ module.exports = {
  - 若 `url` 字段无请求匹配，则 `Hulk` 会不作处理，忽略此请求
  - 若多个正则(或字符串或函数)匹配成功，则按最先匹配的结果处理
 
-> 关于 MockJS
+### Devlope
+
+请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
+
+```bash
+// 开发
+$ nrm use mi
+$ cd Hulk && npm install
+$ cd .. && npm install
+$ npm start
+// 如果使用 vscode 开发可以直接 F5，支持调试。
+```
+
+```bash
+// 测试
+$ npm run test:simple
+// 不生成覆盖率报告
+$ npm run test:server
+// 只测试 server
+$ npm run test
+// 生成测试覆盖率报告
+```
+
+
+### About Mockjs
  - `Mock.mock()` [数据规范及wiki](http://v9.git.n.xiaomi.com/Jeason/hulk/wikis/Syntax-Specification)
  - 下面列出了几个例子，更多请参考 [examples](http://mockjs.com/examples.html)
 
@@ -167,27 +199,4 @@ Mock.mock({
         "full": "Charles Brenda Lopez"
     }
 }
-```
-
-### Devlope
-
-请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
-
-```bash
-// 开发
-$ nrm use mi
-$ cd Hulk && npm install
-$ cd .. && npm install
-$ npm start
-// 如果使用 vscode 开发可以直接 F5，支持调试。
-```
-
-```bash
-// 测试
-$ npm run test:simple
-// 不生成覆盖率报告
-$ npm run test:server
-// 只测试 server
-$ npm run test
-// 生成测试覆盖率报告
 ```
