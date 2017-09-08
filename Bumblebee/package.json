@@ -1,5 +1,5 @@
 {
-  "name": "@mi/bumblebee",
+  "name": "bumblebee.js",
   "version": "1.1.8",
   "description": "Bumblebee => 大黄蜂：解析(parser) swagger 生成 Hulk 配置",
   "main": "index.js",
@@ -9,19 +9,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jeason <zhaojitong@xiaomi.com>",
+  "author": "Jeason <me@jeasonstudio.cn>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@v9.git.n.xiaomi.com:Jeason/hulk.git"
+    "url": "git@github.com:jeasonstudio/hulk.git"
   },
   "bugs": {
-    "url": "http://v9.git.n.xiaomi.com/Jeason/hulk/issues"
+    "url": "http://github.com/jeasonstudio/hulk/issues"
   },
   "bin": {
     "bumblebee": "./bin/bumblebee.js"
   },
-  "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Bumblebee",
+  "homepage": "http://github.com/jeasonstudio/hulk/tree/master/Bumblebee",
   "dependencies": {
     "commander": "^2.11.0",
     "js-yaml": "^3.9.0"

@@ -12,11 +12,12 @@
     "test": "nyc --reporter text --reporter html mocha --recursive"
   },
   "dependencies": {
-    "@mi/hulk": "^1.8.1",
     "body-parser": "~1.17.1",
+    "bumblebee.js": "^1.1.8",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "hulk.js": "^1.8.2",
     "mockjs": "^1.0.1-beta3",
     "morgan": "~1.8.1",
     "multer": "^0.1.8",
@@ -25,7 +26,6 @@
   },
   "hulkpath": "./.hulkrc_backup.js",
   "devDependencies": {
-    "@mi/bumblebee": "^1.1.6",
     "chai": "^4.0.2",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",

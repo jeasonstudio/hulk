@@ -1,5 +1,5 @@
 {
-  "name": "@mi/hulk",
+  "name": "hulk.js",
   "version": "1.8.2",
   "description": "Hulk => 无敌浩克：提供 mock 数据服务的 express 中间件",
   "main": "index.js",
@@ -9,16 +9,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jeason <zhaojitong@xiaomi.com>",
+  "author": "Jeason <me@jeasonstudio.cn>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@v9.git.n.xiaomi.com:Jeason/hulk.git"
+    "url": "git@github.com:jeasonstudio/hulk.git"
   },
   "bugs": {
-    "url": "http://v9.git.n.xiaomi.com/Jeason/hulk/issues"
+    "url": "https://github.com/jeasonstudio/hulk/issues"
   },
-  "homepage": "http://v9.git.n.xiaomi.com/Jeason/hulk/tree/master/Hulk",
+  "homepage": "http://github.com/jeasonstudio/hulk/tree/master/Hulk",
   "dependencies": {
     "colors": "^1.1.2",
     "loglevel": "^1.4.1"
