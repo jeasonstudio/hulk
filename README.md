@@ -116,7 +116,7 @@ Then, request `GET /Jeason?name=jeason&year=20` we can get a `json` object:
 
 ### Devlope
 
-Please clone `git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
+Please fork `https://github.com/jeasonstudio/hulk.git`
 
 ```bash
 # 开发

@@ -109,7 +109,7 @@ module.exports = {
 
 ### Devlope
 
-请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
+请 fork 原仓库：`https://github.com/jeasonstudio/hulk.git`
 
 ```bash
 # 开发
