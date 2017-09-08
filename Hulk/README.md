@@ -35,20 +35,14 @@ $ npm install hulk.js mockjs body-parser --save-dev
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const HulkMiddleWare = require('@mi/hulk');
-
 // ...
 
-setup(app) {
-  app.use(bodyParser.json());
-  // for parsing application/json
-  app.use(bodyParser.urlencoded({ extended: true }));
-  // for parsing application/x-www-form-urlencoded
-  app.use(multer());
-  // for parsing multipart/form-data
-
-  app.use(HulkMiddleWare);
-  // use Hulk Middle Ware
-}
+// for parsing application/json
+app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// use Hulk Middle Ware
+app.use(HulkMiddleWare);
 ```
 
 ```javascript
@@ -118,22 +112,21 @@ module.exports = {
 请 clone 原仓库：`git clone git@v9.git.n.xiaomi.com:Jeason/hulk.git`
 
 ```bash
-// 开发
-$ nrm use mi
+# 开发
 $ cd Hulk && npm install
 $ cd .. && npm install
 $ npm start
-// 如果使用 vscode 开发可以直接 F5，支持调试。
+# 如果使用 vscode 开发可以直接 F5，支持调试。
 ```
 
 ```bash
-// 测试
+# 测试
 $ npm run test:simple
-// 不生成覆盖率报告
+# 不生成覆盖率报告
 $ npm run test:server
-// 只测试 server
+# 只测试 server
 $ npm run test
-// 生成测试覆盖率报告
+# 生成测试覆盖率报告
 ```
 
 

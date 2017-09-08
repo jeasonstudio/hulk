@@ -130,11 +130,11 @@ $ npm start
 ```bash
 # unit test
 $ npm run test:simple
-// No coverage report
+# No coverage report
 $ npm run test:server
-// Only test server
+# Only test server
 $ npm run test
-// Generate a test coverage report
+# Generate a test coverage report
 ```
 
 ### About Mockjs
