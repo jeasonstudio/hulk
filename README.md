@@ -9,16 +9,16 @@
   [![Liense MIT](https://img.shields.io/pypi/l/pipenv.svg)](https://github.com/learn-anything/learn-anything/blob/master/LICENSE)
 </div>
 
-Hulk.js: An express middleware provide Mock data service.
+Hulk.js: An express middleware providing Mock data service.
 
 [以中文查看此文](Hulk/README.md)
 
 | Question | Answers |
 | :--- | :--- |
 | What is Mock? | In short, mocking is creating objects that simulate the behaviour of real objects. |
-| What is Hulk? | Hulk is a pluggable express middleware, you can use Hulk.js to get the Mock service. |
-| How does Hulk do it? | Hulk.js relies on webpack-dev-server, match and intercept in any middle of the request that matches the rules. |
-| Why Mockjs？ | Mockjs library seems to be more mature to provide mock data, We use it to provide more real mock data such as arrays, objects, place names, ip, names, complex json structures, and so on. |
+| What is Hulk? | Hulk is a pluggable express middleware, you can use Hulk.js to get Mock service. |
+| How does Hulk do it? | Relying on webpack-dev-server, Hulk.js matches and intercepts in any middle of the request that matches the rules. |
+| Why Mockjs？ | Mockjs library is a developed provider of mock data, We use it to provide more real mock data such as arrays, objects, place names, ip, names, complex json structures, and so on. |
 | How can I use it? | Continue reading. |
 
 ### Install
@@ -37,11 +37,11 @@ const HulkMiddleWare = require('hulk.js')
 // some code here...
 
 // for parsing application/json
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 // for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
 // use Hulk Middle Ware
-app.use(HulkMiddleWare);
+app.use(HulkMiddleWare)
 ```
 
 Note:
@@ -110,8 +110,8 @@ Then, request `GET /Jeason?name=jeason&year=20` we can get a `json` object:
 
 ### Tips: important!
 
- - Hulk.js middleware only provides proxy services, `simulation data service` we recommend using `mockjs`, but you can have other similar options.
- - If no request matchs `url` field,` Hulk.js` will do nothing, ignore this request
+ - Hulk.js middleware only provides `proxy` services, `simulation` data service we recommend using mockjs, but you can have other similar options.
+ - If no request matchs url field,Hulk.js will ignore this request
  - If there are more than one regular (or string or function) matches, we will follow the results of the first match, of course, `Hulk.js` will give you a warning log.
 
 ### Devlope
