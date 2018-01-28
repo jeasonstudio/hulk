@@ -25,14 +25,11 @@ function requireF(modulePath) {
   }
 }
 
-/**
- * load your hulk config
- */
+// load hulk config
 const config = requireF(hulkPath);
 
-// eslint-disable-next-line
+// eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
-
   const ruleMatchs = config.Rules.filter((self) => {
     /**
      * self.url should be one of [ regexp, string, function ]

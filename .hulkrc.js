@@ -25,7 +25,7 @@ module.exports = {
     method: undefined,
     resCode: 405,
     resHeaders: { 'Content-Type': 'application/json' },
-    res: ({ body }) => Mock.mock({ }),
+    res: ({ body }) => Mock.mock({ a: 1 }),
   }, {
     url: /\/pet\/findByStatus\?/,
     method: get,
