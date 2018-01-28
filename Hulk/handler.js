@@ -1,7 +1,6 @@
 const path = require('path');
 const AnyQs = require('./anyqs');
-// eslint-disable-next-line
-const colors = require('colors');
+require('colors');
 
 /**
  * we will search your package.json property `hulkpath`

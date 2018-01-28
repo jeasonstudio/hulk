@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 app.use((req, res) => {
   const err = new Error('Not Found');
   err.status = 404;
-  res.send('404 Not Found...');
+  res.send('404 Not Found');
 });
 
 module.exports = app;
